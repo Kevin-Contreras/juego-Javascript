@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="shortcut icon" type="icon" href="..\labtube\img/ladrillo.png" >
+	<title id="title">sds</title>
+</head>
+<style type="text/css">
+*{
+	margin:0;
+}
+	div{
+		height: 500px;
+		width: 600px;
+		background: black;
+		margin :auto;
+		padding-top: 20px;
+		position: relative;
+		margin-top: 20px
+		 }
+		div #personaje{
+			height: 80px;
+			width: 100px;
+			margin-top:20px;
+			margin-left:200px;
+			position: relative; 
+			display: block;
+
+		}
+		div #comida {
+			height: 80px;
+			width: 100px;
+			margin:0;
+			background: blue;
+			left: 50px;
+			position: relative;
+			
+		}
+	
+		#nombre{
+		
+			text-align: center;
+			position: relative;
+			margin-top:-650px;
+			font-family: 'Indie Flower', cursive;
+		}
+#loca{
+	height: 690px;
+	width: 100%
+
+}
+#salir{
+	position: relative;
+	margin-left: 550px;
+	margin-top: 20px;
+	border: none;
+	width: 100px;
+	height: 30px;
+	background: #CA1B26
+
+}
+#salir:hover{
+	border-radius: 10px;
+	background: #F3505A;
+}
+#h1{
+	display: inline-block;
+	color: red;
+	font-family: 'Indie Flower', cursive;
+	margin-left: 20px;
+}
+
+</style>
+<body >
+	<img src="../culebrita/img/raton.jpg" id="loca">
+<h1 id="nombre"></h1>
+<div id="div">
+	<img src="../culebrita/img/gato.jpg" id="personaje">
+
+		<img src="../culebrita/img/queso.jpg" id="comida">
+
+</div>
+
+
+<h1 id="h1"></h1>
+<button id="salir">SALIR</button>
+</body>
+
+<script type="text/javascript">
+	'use strict'
+	//DECLARACION DE VARIABLES
+	var serpiente = document.querySelector('#personaje');
+	var comida = document.querySelector('#comida');
+	var div = document.querySelector('#div');
+	var h1 = document.querySelector('#h1');
+	var obstaculo = document.querySelector('#obstaculo');
+	var ser = 0;
+	var crecer = 0;
+	var maria = 0;
+	var carlos=0;
+	var kevin = 0;
+	var lil = 0;
+	var width = 600;
+	var height = 500;
+	var time = 0;
+	var nose = 0;
+	var ob = 0;
+	var pati = sessionStorage.getItem('get')
+	var tia = document.querySelector('#nombre');
+	var boton =document.querySelector('#salir')
+	//------------------------------ LOGICA DE MOVIMIENTO ----------------------//
+
+	tia.innerHTML= 'BIENVENIDO A EL GATO Y EL RATON ' + pati.toUpperCase();
+	//DECLARACION DE FUNCIONES
+	function derecha(boton){
+		if (boton.keyCode == 39) {
+			clearInterval(carlos)
+			clearInterval(kevin)
+			clearInterval(lil)
+		maria =	window.setInterval(function(){
+			var nuevo3 = serpiente.getBoundingClientRect();
+	var documento3 = comida.getBoundingClientRect();
+				crecer+=10;
+			serpiente.style.left = crecer+'px';
+
+			if (crecer == 310) {
+				crecer = 0;
+				ser = 0;
+					nose =0;
+				h1.innerHTML = pati.toUpperCase() +' : '+' llevas '+ nose +' haciertos';
+				clearInterval(maria)
+			alert('has perdido')
+			serpiente.style.left = crecer+'px';
+			serpiente.style.top = crecer+'px';
+			serpiente.style.left = ser+'px';
+			serpiente.style.top = ser+'px'
+		}
+		else{
+			false
+		}
+		if (Math.trunc(documento3.x) == Math.trunc(nuevo3.x) && Math.trunc(documento3.y) == Math.trunc(nuevo3.y)) {
+					var numero3 = Math.trunc(Math.random()*10)
+			comida.style.top = 30*(Math.trunc(Math.random() + numero3))+'px' ;
+			comida.style.left = 50*(Math.trunc(Math.random()+numero3))+'px';
+				nose++;
+		h1.innerHTML = pati.toUpperCase() +' : '+' llevas '+ nose +' haciertos';
+		}
+
+		else{
+			false
+		}
+	},15)
+
+		}
+		else{
+			false
+		}	
+	}
+
+	function izquirda (boton){
+		if (boton.keyCode==37) {
+			clearInterval(maria)
+			clearInterval(kevin)
+			clearInterval(lil)
+				carlos = setInterval(function(){
+				var nuevo2 = serpiente.getBoundingClientRect();
+				var documento2 = comida.getBoundingClientRect();
+					crecer-=10;
+			serpiente.style.left = crecer+'px';
+			if (crecer == -210 ) {
+				crecer = 0;
+				ser=0;
+					nose =0;
+h1.innerHTML = pati.toUpperCase() +' : '+' llevas '+ nose +' haciertos';
+				clearInterval(carlos)
+			alert('has perdido')
+			serpiente.style.left = crecer+'px';
+			serpiente.style.top = crecer+'px';
+				serpiente.style.left = ser+'px';
+			serpiente.style.top = ser+'px'
+		}
+		else{
+			false
+		}
+if (Math.trunc(documento2.x) == Math.trunc(nuevo2.x) && Math.trunc(documento2.y) == Math.trunc(nuevo2.y)) {
+					var numero2 = Math.trunc(Math.random()*10)
+			comida.style.top = 40*(Math.trunc(Math.random() + numero2))+'px' ;
+			comida.style.left = 50*(Math.trunc(Math.random()+numero2))+'px';
+				nose++;
+
+				h1.innerHTML = pati.toUpperCase() +' : '+' llevas '+ nose +' haciertos';
+		}
+
+		else{
+			false
+		}
+
+				},15)
+					}
+		else{
+		false
+		}
+
+	}
+function abajo (boton){
+if (boton.keyCode == 40) {
+	clearInterval(maria)
+	clearInterval(carlos)
+	clearInterval(lil)
+	 kevin = setInterval(function(){
+		var nuevo1 = serpiente.getBoundingClientRect();
+	var documento1 = comida.getBoundingClientRect();
+				ser+=10;
+			serpiente.style.top = ser+'px';
+			if (ser == 410) {
+				ser = 0;
+				crecer = 0;
+					nose =0;
+				h1.innerHTML = pati.toUpperCase() +' : '+' llevas '+ nose +' haciertos';
+				clearInterval(kevin)
+			alert('has perdido')
+				serpiente.style.left = crecer+'px';
+			serpiente.style.top = crecer+'px';
+			serpiente.style.left = ser+'px';
+			serpiente.style.top = ser+'px';
+		}
+		else{
+			false
+		}
+if (Math.trunc(documento1.x) == Math.trunc(nuevo1.x) && Math.trunc(documento1.y) == Math.trunc(nuevo1.y)) {
+					var numero1 = Math.trunc(Math.random()*10)
+			comida.style.top = 30*(Math.trunc(Math.random() + numero1))+'px' ;
+			comida.style.left = 10*(Math.trunc(Math.random()+numero1))+'px';
+				nose++;
+
+			h1.innerHTML = pati.toUpperCase() +' : '+' llevas ' +nose +' haciertos';
+		}
+
+		else{
+			false
+		}	
+			},15)
+		}
+		else{
+			false
+		}
+		
+}
+function arriba (boton){
+	
+	if (boton.keyCode == 38) {
+
+	clearInterval(maria)
+	clearInterval(carlos)
+	clearInterval(kevin)
+	 	lil = setInterval(function(){
+		var nuevo = serpiente.getBoundingClientRect();
+		var documento = comida.getBoundingClientRect();
+
+				window.ser-=10;
+			serpiente.style.top = ser+'px';
+			if (ser == -50) {
+				ser = 0;
+				crecer = 0;
+				nose =0;
+			h1.innerHTML = pati.toUpperCase() +' : '+' llevas '+ nose +' haciertos';
+				clearInterval(lil)
+				alert('has perdido')
+			serpiente.style.left = ser+'px';
+			serpiente.style.top = ser+'px';
+				serpiente.style.left = crecer+'px';
+			serpiente.style.top = crecer+'px';			
+		}
+
+		else{
+			false
+		}
+		
+
+	if (Math.trunc(documento.x) == Math.trunc(nuevo.x) && Math.trunc(documento.y) == Math.trunc(nuevo.y)) {
+					var numero = Math.trunc(Math.random()*10)
+			comida.style.top = -10*(Math.trunc(Math.random() + numero))+'px' ;
+			comida.style.left = 50*(Math.trunc(Math.random()+numero))+'px';
+			nose++;
+			h1.innerHTML = pati.toUpperCase() +' : '+' llevas ' +nose +' haciertos';
+
+		}
+
+		else{
+			false
+		}
+			
+	},15)
+		}
+		else{
+			false;
+		}	}
+function salir(){
+	sessionStorage.clear();
+	window.location.href = 'inicio.html'
+}
+//DECLARACION DE EVENTOS
+boton.addEventListener('click',salir)
+ document.addEventListener('keydown',izquirda);
+ document.addEventListener('keydown',derecha);
+ document.addEventListener('keydown',abajo);
+document.addEventListener('keydown',arriba);
+  
+	//------------------------------ LOGICA DE MOVIMIENTO ----------------------//
+</script>
+</html>

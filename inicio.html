@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>juego</title>
+	<meta charset="utf-8">
+</head>
+<style type="text/css">
+*{
+	margin:0;
+}
+	img{
+		width: 100%;
+		height: 690px;
+		margin-top: -149px
+		
+	}
+	form {
+		position: relative;
+	top: 300px;
+margin-left: 500px;
+
+		
+	}
+	form input {
+		padding: 20px;
+		width: 300px;
+		font-size: 20px;
+		display: block;
+		border:none;
+		
+	}
+	form button{
+		border: none;
+		width: 120px;
+		height: 30px;
+		margin-top:20px;
+		margin-left: 120px;
+	}
+	form button:hover{
+		background: #C7D81C;
+	}
+	h1{
+	top: 250px;
+margin-left: 600px;
+		position: relative;
+		color: #ffff;
+	}
+
+</style>
+<body>
+	<h1>Nombre</h1>
+	<form>
+		<input type="text" name="texto1" placeholder="ingrese su nombre" id="texto">
+		<button id="boton">Entrar</button>
+	</form>
+<img src="../culebrita/img/soldado.jpg">
+</body>
+<script type="text/javascript">
+boton.addEventListener('click',function(d){
+var texto = document.querySelector('#texto').value;
+var boton = document.querySelector('#boton');
+if (texto=='') {
+	alert('la casilla esta vacia')
+}
+else if(texto == texto ){
+	d.preventDefault();
+sessionStorage.setItem("get",texto);
+window.location.href = 'culebrita.html'
+}
+})
+</script>
+</html>
